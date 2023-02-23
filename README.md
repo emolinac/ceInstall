@@ -241,7 +241,7 @@ To enable modules, the following line should be added to your `.bashrc` or `.zsh
 
 `. /usr/share/modules/init/zsh` or `. /usr/share/modules/init/bash`
 
-In the *ubuntu line* of `copy_qt` change the value QTDIR_INCS with the output of
+In the *ubuntu line* of `copy_qt` change the value QTDIR_INCS with the output of:
 ```
 qmake -query QT_INSTALL_HEADERS
 ```
