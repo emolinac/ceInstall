@@ -235,11 +235,16 @@ To enable modules, the following line should be added to your `.bashrc` or `.zsh
 
 #### Linux Ubuntu line installation of requirements[^2]:
 
-```apt-get install zsh wget environment-modules g++ mysql-client libmysqlclient-dev libexpat1-dev cmake scons libx11-dev libxext-dev libglu1-mesa-dev libxt-dev libxmu-dev libxrender-dev libxft-dev libafterimage-dev```
+```apt-get install zsh wget environment-modules g++ mysql-client libmysqlclient-dev libexpat1-dev cmake scons libx11-dev libxext-dev libglu1-mesa-dev libxt-dev libxmu-dev libxrender-dev libxft-dev libafterimage-dev qtbase5-dev```
 
 To enable modules, the following line should be added to your `.bashrc` or `.zshrc`:
 
 `. /usr/share/modules/init/zsh` or `. /usr/share/modules/init/bash`
+
+In the *ubuntu line* of `copy_qt` change the value QTDIR_INCS with the output of
+```
+qmake -query QT_INSTALL_HEADERS
+```
 
 #### Linux CentOS line installation of requirements[^2]:
 
