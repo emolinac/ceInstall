@@ -51,7 +51,7 @@ case $(uname -s) in
         elif [ -f /etc/os-release ]; then
             echo  " > QT Line: Ubuntu "
             SQTDIR=/usr/lib/x86_64-linux-gnu
-            QTDIR_INCS=/usr/include/qt5  # includes
+            QTDIR_INCS=/usr/include/x86_64-linux-gnu/qt5  # includes
             SQTDIR_ALL=$SQTDIR/qt5       # binaries, mkspecs and plugins
         else
             echo  " > Linux line not supported yet "
