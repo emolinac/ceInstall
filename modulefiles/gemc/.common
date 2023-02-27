@@ -2,6 +2,7 @@
 
 conflict gemc
 
+module load .osrelease
 module load .clhep/${clhep_version}
 module load .xercesc/${xercesc_version}
 module load .qt/${qt_version}
@@ -14,6 +15,9 @@ module load .mlibrary/${mlibrary_version}
 module load .hipo/${hipo_version}
 module load .cmag/${cmag_version}
 
+if { $banks_version != "0.9" } {
+    module load .banks/${banks_version}
+}
 
 # Environment
 
@@ -43,6 +47,7 @@ if { [ lindex [ split $version . ] 0 ] == 2 } {
 proc ModulesTest { } {
 	
 	global SIM_VERSION
+	global banks_version
 	set retcode 1
 
 	set command [module-info command]
@@ -55,7 +60,11 @@ proc ModulesTest { } {
 		return 0
 	}
 
-	set dirs_to_test { CLHEP_BASE_DIR XERCESCROOT QTDIR G4LEDATA G4LIB SCONS_BM CCDB_HOME EVIO MLIBRARY HIPO C12BFIELDS }
+	set dirs_to_test {     CLHEP_BASE_DIR XERCESCROOT QTDIR G4LEDATA G4LIB SCONS_BM CCDB_HOME EVIO MLIBRARY HIPO C12BFIELDS }
+	if { $banks_version != "0.9" } {
+	    set dirs_to_test { CLHEP_BASE_DIR XERCESCROOT QTDIR G4LEDATA G4LIB SCONS_BM CCDB_HOME EVIO MLIBRARY HIPO C12BFIELDS BANKS }
+    }
+
 	set missing {}
 
 	puts stderr " Running $command for $is_loaded "
